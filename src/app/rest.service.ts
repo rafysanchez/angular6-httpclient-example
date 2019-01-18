@@ -18,7 +18,7 @@ export class RestService {
   constructor(private http: HttpClient) {}
 
   private extractData(res: Response) {
-    let body = res;
+    const body = res;
     return body || { };
   }
 
@@ -35,6 +35,7 @@ export class RestService {
   addProduct (product): Observable<any> {
     console.log(product);
     return this.http.post<any>(endpoint + 'products', JSON.stringify(product), httpOptions).pipe(
+      // tslint:disable-next-line:no-shadowed-variable
       tap((product) => console.log(`added product w/ id=${product.id}`)),
       catchError(this.handleError<any>('addProduct'))
     );
