@@ -9,9 +9,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProductComponent implements OnInit {
 
-  products:any = [];
+  products: any = [];
 
-  constructor(public rest:RestService, private route: ActivatedRoute, private router: Router) { }
+  constructor(public rest: RestService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.getProducts();
@@ -37,6 +37,10 @@ export class ProductComponent implements OnInit {
           console.log(err);
         }
       );
+  }
+
+  edit(id) {
+    this.router.navigate(['/product-edit/' + id]);
   }
 
 }

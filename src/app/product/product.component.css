@@ -71,3 +71,11 @@ button.delete {
   background-color: gray !important;
   color: white;
 }
+
+button.edit {
+  position: relative;
+  left: 140px;
+  top: -32px;
+  background-color: rgb(29, 150, 99) !important;
+  color: white;
+}

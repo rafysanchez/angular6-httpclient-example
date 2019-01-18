@@ -18,7 +18,9 @@ export class ProductAddComponent implements OnInit {
 
   addProduct() {
     this.rest.addProduct(this.productData).subscribe((result) => {
-      this.router.navigate(['/product-details/'+result._id]);
+    // this.router.navigate(['/product-details/'+ result._id]);
+      this.router.navigate(['/products']);
+
     }, (err) => {
       console.log(err);
     });

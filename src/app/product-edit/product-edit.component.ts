@@ -9,9 +9,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProductEditComponent implements OnInit {
 
-  @Input() productData:any = { prod_name: '', prod_desc: '', prod_price:0 };
+  @Input() productData: any = { prod_name: '', prod_desc: '', prod_price: 0 };
 
-  constructor(public rest:RestService, private route: ActivatedRoute, private router: Router) { }
+  constructor(public rest: RestService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.rest.getProduct(this.route.snapshot.params['id']).subscribe((data: {}) => {
@@ -22,7 +22,7 @@ export class ProductEditComponent implements OnInit {
 
   updateProduct() {
     this.rest.updateProduct(this.route.snapshot.params['id'], this.productData).subscribe((result) => {
-      this.router.navigate(['/product-details/'+result._id]);
+      this.router.navigate(['/product-details/' + result._id]);
     }, (err) => {
       console.log(err);
     });
